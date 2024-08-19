@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\PhotoController;
+use App\Http\Controllers\API\VideoController;
 
 Route::controller(PostController::class)->name('posts.')->group(function () {
     Route::get('/posts', 'index')->name('index');
@@ -13,3 +14,6 @@ Route::controller(PhotoController::class)->name('photos.')->group(function () {
     Route::get('/photos', 'index')->name('index');
 });
 
+Route::controller(VideoController::class)->name('videos.')->group(function () {
+    Route::get('/videos', 'index')->name('index');
+});
