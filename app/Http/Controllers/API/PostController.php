@@ -26,4 +26,15 @@ class PostController extends Controller
     {
         return new ShowResource($post);
     }
+
+    public function other_posts(Request $request) {
+        $validated = $request->validate([
+            'slug' => 'required|exists:posts',
+        ]);
+        $posts = Post::latest()
+            ->where('slug', '!=', $validated['slug'])
+            ->limit(4)
+            ->get();
+        return IndexResource::collection($posts);
+    }
 }

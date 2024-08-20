@@ -7,6 +7,7 @@ use App\Http\Controllers\API\VideoController;
 
 Route::controller(PostController::class)->name('posts.')->group(function () {
     Route::get('/posts', 'index')->name('index');
+    Route::get('/posts/others', 'other_posts')->name('others');
     Route::get('/posts/{post:slug}', 'show')->name('show');
 });
 
