@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'CRM | Новости | Создать')
+@section('title', 'CRM | Новости | Редактировать')
 
 @section('content_header')
   <h1>Новости | Редактировать</h1>

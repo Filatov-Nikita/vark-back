@@ -306,10 +306,18 @@ return [
             'url' => 'crm/posts',
             'icon' => 'fas fa-fw fa-bullhorn',
         ],
+
+        [ 'header' => 'Галерея' ],
+
         [
-            'text' => 'Галерея',
-            'url' => 'crm/gallery',
+            'text' => 'Фото',
+            'url' => 'crm/photos',
             'icon' => 'fas fa-fw fa-camera',
+        ],
+        [
+            'text' => 'Видео',
+            'url' => 'crm/videos',
+            'icon' => 'fas fa-fw fa-play',
         ],
     ],
 

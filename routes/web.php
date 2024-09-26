@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostThumbnailController;
 use App\Http\Controllers\PostImageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PhotoController;
 
 Route::get('/', function () {
     return redirect('/crm/home');
@@ -12,6 +13,7 @@ Route::get('/', function () {
 
 Route::prefix('crm')->middleware('auth')->name('crm.')->group(function() {
     Route::resource('posts', PostController::class);
+    Route::resource('photos', PhotoController::class);
 
     Route::controller(PostThumbnailController::class)->name('posts.thumbnail.')->group(function () {
         Route::post('/posts/{post}/thumbnail', 'store')->name('store');
