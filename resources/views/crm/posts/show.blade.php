@@ -44,6 +44,86 @@
             <td>Контент</td>
             <td>{{ $post->body }}</td>
           </tr>
+          <tr>
+            <td>Миниатюра</td>
+            @if($post->thumbnail)
+            <td>
+              <div class="mb-4">
+                <img style="width: 300px; height: auto" width="{{ $post->thumbnail->width }}" height="{{ $post->thumbnail->height }}" src="{{ $post->thumbnail->url }}" />
+              </div>
+              <form action="{{ route('crm.posts.thumbnail.update', [ 'post' => $post->id ]) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <x-adminlte-input-file
+                  name="thumbnail"
+                  legend="Открыть"
+                  placeholder="Выберите файл"
+                >
+                  <x-slot name="bottomSlot">
+                    <span class="text-sm text-gray">Максимум 1мб</span>
+                  </x-slot>
+                </x-adminlte-input-file>
+                <button class="btn btn-primary" type="submit">Обновить</button>
+              </form>
+            </td>
+            @else
+            <td>
+              <form action="{{ route('crm.posts.thumbnail.store', [ 'post' => $post->id ]) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <x-adminlte-input-file
+                  name="thumbnail"
+                  legend="Открыть"
+                  placeholder="Выберите файл"
+                >
+                  <x-slot name="bottomSlot">
+                    <span class="text-sm text-gray">Максимум 1мб</span>
+                  </x-slot>
+                </x-adminlte-input-file>
+                <button class="btn btn-primary" type="submit">Загрузить</button>
+              </form>
+            </td>
+            @endif
+          </tr>
+          <tr>
+            <td>Изображение</td>
+            @if($post->image)
+            <td>
+              <div class="mb-4">
+                <img style="width: 300px; height: auto" width="{{ $post->image->width }}" height="{{ $post->image->height }}" src="{{ $post->image->url }}" />
+              </div>
+              <form action="{{ route('crm.posts.image.update', [ 'post' => $post->id ]) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <x-adminlte-input-file
+                  name="image"
+                  legend="Открыть"
+                  placeholder="Выберите файл"
+                >
+                  <x-slot name="bottomSlot">
+                    <span class="text-sm text-gray">Максимум 1мб</span>
+                  </x-slot>
+                </x-adminlte-input-file>
+                <button class="btn btn-primary" type="submit">Обновить</button>
+              </form>
+            </td>
+            @else
+            <td>
+              <form action="{{ route('crm.posts.image.store', [ 'post' => $post->id ]) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <x-adminlte-input-file
+                  name="image"
+                  legend="Открыть"
+                  placeholder="Выберите файл"
+                >
+                  <x-slot name="bottomSlot">
+                    <span class="text-sm text-gray">Максимум 1мб</span>
+                  </x-slot>
+                </x-adminlte-input-file>
+                <button class="btn btn-primary" type="submit">Загрузить</button>
+              </form>
+            </td>
+            @endif
+          </tr>
         </tbody>
       </table>
     </div>
