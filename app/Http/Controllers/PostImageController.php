@@ -25,7 +25,7 @@ class PostImageController extends Controller
         $data = new CreateData(
             file: $file,
             relatable: $post,
-            owner: User::firstOrFail(),
+            owner: $request->user(),
             disk: 'public',
             directory: 'posts/images',
             type: 'image'
@@ -59,7 +59,7 @@ class PostImageController extends Controller
         $data = new CreateData(
             file: $file,
             relatable: $post,
-            owner: User::firstOrFail(),
+            owner: $request->user(),
             disk: 'public',
             directory: 'posts/images',
             type: 'image'
