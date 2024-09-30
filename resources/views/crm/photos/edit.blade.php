@@ -7,7 +7,10 @@
 @stop
 
 @section('content')
-  <div class="card card-primary">
+  <div class="card">
+    <div class="card-header">
+      <a class="btn btn-primary mr-2" href="{{ route('crm.photos.show', [ 'photo' => $photo->id ]) }}">В карточку</a>
+    </div>
     <div class="card-body">
       <form method="POST" action="{{ route('crm.photos.update', [ 'photo' => $photo->id ]) }}" enctype="multipart/form-data">
         @csrf

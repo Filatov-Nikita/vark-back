@@ -7,7 +7,10 @@
 @stop
 
 @section('content')
-  <div class="card card-primary">
+  <div class="card">
+    <div class="card-header">
+      <a class="btn btn-primary mr-2" href="{{ route('crm.posts.index') }}">К списку</a>
+    </div>
     <div class="card-body">
       <form method="POST" action="{{ route('crm.posts.store') }}">
         @csrf

@@ -7,9 +7,9 @@
 @stop
 
 @section('content')
-  <div class="card card-primary">
+  <div class="card">
     <div class="card-header">
-      {{ $post->title }}
+      <a class="btn btn-primary mr-2" href="{{ route('crm.posts.show', [ 'post' => $post->id ]) }}">В карточку</a>
     </div>
     <div class="card-body">
       <form method="POST" action="{{ route('crm.posts.update', [ 'post' => $post->id ]) }}">

@@ -26,6 +26,7 @@
               />
             </a>
             <div class="card-body">
+              <p style="min-height: 20px">{{ $photo->title }}</p>
               <a href="{{ route('crm.photos.show', [ 'photo' => $photo->id ]) }}" class="btn btn-danger w-100">
                 Удалить
               </a>
