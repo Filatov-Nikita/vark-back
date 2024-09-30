@@ -4,7 +4,7 @@ namespace App\Http\Resources\Video;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Image\ShowResource as VideoShowResource;
+use App\Http\Resources\Image\ShowResource;
 
 class IndexResource extends JsonResource
 {
@@ -17,7 +17,8 @@ class IndexResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'video' => new VideoShowResource($this->video),
+            'video' => new ShowResource($this->video),
+            'preview' => new ShowResource($this->preview),
         ];
     }
 }
