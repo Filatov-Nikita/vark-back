@@ -19,7 +19,7 @@ class Create
         $result = $data->file->store($data->directory, $data->disk);
 
         if ($result === false) {
-            throw new Exception();
+            throw new \Exception();
         }
 
         return $result;
