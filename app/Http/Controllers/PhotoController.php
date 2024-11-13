@@ -105,9 +105,16 @@ class PhotoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Photo $photo)
+    public function destroy(Photo $photo, Remove $delete)
     {
+        $photoFrame = $photo->image;
+
+        if($photoFrame) {
+            $delete($photoFrame);
+        }
+
         $photo->delete();
+
         return redirect()->route('crm.photos.index');
     }
 }

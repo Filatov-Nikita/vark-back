@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
+use App\Models\Actions\Frame\Remove;
 
 class PostController extends Controller
 {
@@ -66,9 +67,23 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post, Remove $delete)
     {
+
+        $imageFrame = $post->image;
+
+        if($imageFrame) {
+            $delete($imageFrame);
+        }
+
+        $thumbnailFrame = $post->thumbnail;
+
+        if($thumbnailFrame) {
+            $delete($thumbnailFrame);
+        }
+
         $post->delete();
+
         return redirect()->route('crm.posts.index');
     }
 }

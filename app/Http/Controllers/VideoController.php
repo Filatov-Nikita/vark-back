@@ -138,9 +138,22 @@ class VideoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Video $video)
+    public function destroy(Video $video, Remove $delete)
     {
+        $videoFrame = $video->video;
+
+        if($videoFrame) {
+            $delete($videoFrame);
+        }
+
+        $previewFrame = $video->preview;
+
+        if($previewFrame) {
+            $delete($previewFrame);
+        }
+
         $video->delete();
+
         return redirect()->route('crm.videos.index');
     }
 }
