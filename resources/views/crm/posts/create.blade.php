@@ -44,5 +44,5 @@
 @stop
 
 @section('js')
-  @vite('resources/js/posts/save.js');
+  @vite('resources/js/posts/save.js')
 @stop

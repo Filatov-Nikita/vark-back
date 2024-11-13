@@ -12,6 +12,9 @@
       <a class="btn btn-primary" href="{{ route('crm.posts.create') }}">Создать</a>
     </div>
     <div class="card-body">
+      @if(count($posts) === 0)
+        <p class="text-center mb-0 py-4">Еще не добавлено ни одной новости</p>
+      @else
       <table class="table">
         <thead>
           <tr>
@@ -45,6 +48,7 @@
           @endforeach
         </tbody>
       </table>
+      @endif
     </div>
     <div class="card-footer">
       {{ $posts->links() }}
