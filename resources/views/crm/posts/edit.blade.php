@@ -47,3 +47,7 @@
     </div>
   </div>
 @stop
+
+@section('js')
+  @vite('resources/js/posts/save.js');
+@stop
