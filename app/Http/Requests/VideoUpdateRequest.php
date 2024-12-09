@@ -22,7 +22,7 @@ class VideoUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'video' => 'mimes:mp4,webm|max:10240',
+            'video' => 'mimes:mp4,webm|max:51200',
             'preview' => 'image|max:1024',
             'title' => 'max:255',
         ];

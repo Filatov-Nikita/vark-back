@@ -22,7 +22,7 @@ class VideoStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'video' => 'required|mimes:mp4,webm|max:10240',
+            'video' => 'required|mimes:mp4,webm|max:51200',
             'preview' => 'required|image|max:1024',
             'title' => 'max:255',
         ];
