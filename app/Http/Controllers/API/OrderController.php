@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderProduct;
+use App\Mail\ProductForms;
 
 class OrderController extends Controller
 {
@@ -16,6 +17,7 @@ class OrderController extends Controller
         ]);
 
         Mail::to(config('mail.from.address'))->send(new OrderProduct($validated));
+        Mail::to($validated['email'])->send(new ProductForms($validated));
 
         return [
             'success' => true,
